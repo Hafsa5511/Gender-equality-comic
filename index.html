@@ -244,6 +244,129 @@
   opacity: 0;
   transition: bottom 0.1s ease-out, opacity 0.3s ease-out;
 }
+      
+      
+      .color-symbolism-section {
+  margin: 80px 0;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 30px;
+  border: 1px solid rgba(133, 120, 150, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.symbolism-description {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 40px;
+  font-style: italic;
+}
+
+.symbolism-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.symbolism-card {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  padding: 25px;
+  border: 1px solid rgba(133, 120, 150, 0.2);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.symbolism-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, 
+    rgba(133, 120, 150, 0.15) 0%, 
+    transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.symbolism-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(133, 120, 150, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+              0 0 40px rgba(133, 120, 150, 0.2);
+}
+
+.symbolism-card:hover::before {
+  opacity: 1;
+}
+
+.color-preview {
+  width: 100%;
+  height: 80px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.symbolism-card:hover .color-preview {
+  transform: scale(1.05);
+}
+
+.color-details {
+  position: relative;
+}
+
+.color-name {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(133, 120, 150, 1);
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.color-meaning {
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.symbolism-insight {
+  padding: 25px;
+  background: rgba(133, 120, 150, 0.05);
+  border-left: 3px solid rgba(133, 120, 150, 0.5);
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.symbolism-insight strong {
+  color: rgba(133, 120, 150, 1);
+  font-weight: 500;
+}
+
+/* Sparkle effect on hover */
+@keyframes color-sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+.symbolism-card:hover::after {
+  content: '✦';
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: rgba(133, 120, 150, 0.6);
+  font-size: 20px;
+  animation: color-sparkle 1.5s ease-in-out infinite;
+}
     </style>
   </head>
 
@@ -274,6 +397,9 @@
           </div>
         </div>
 
+        
+        
+        
         <!-- Main Project Image -->
         <div class="project-image-section">
           <img src="comic.png" alt="Project main image" class="project-image">
@@ -281,6 +407,67 @@
           <p class="image-caption">Comic-style digital illustrations exploring progress and regression in women’s rights</p>
         </div>
 
+        <div class="color-symbolism-section">
+  <h2 class="section-title">Color Symbolism</h2>
+  <p class="symbolism-description">Hover over the colors to discover their meaning in the narrative</p>
+  
+  <div class="symbolism-grid">
+    <div class="symbolism-card" data-color="mint">
+      <div class="color-preview" style="background: linear-gradient(135deg, #A8D5BA, #7FB3A0);"></div>
+      <div class="color-details">
+        <h3 class="color-name">Mint Green (1970s)</h3>
+        <p class="color-meaning">Represents hope and progress during the Equal Rights Movement. The fresh, optimistic tone reflects the era's belief in positive change and forward momentum.</p>
+      </div>
+    </div>
+    
+    <div class="symbolism-card" data-color="maroon">
+      <div class="color-preview" style="background: linear-gradient(135deg, #8B4049, #5C2C31);"></div>
+      <div class="color-details">
+        <h3 class="color-name">Deep Maroon (2000s)</h3>
+        <p class="color-meaning">Symbolizes the stagnation and corporate suppression of women's rights. The muted, serious tone reflects workplace discrimination and ongoing inequality.</p>
+      </div>
+    </div>
+    
+    <div class="symbolism-card" data-color="purple">
+      <div class="color-preview" style="background: linear-gradient(135deg, #9B86A4, #6B5B73);"></div>
+      <div class="color-details">
+        <h3 class="color-name">Purple/Lavender (2020s)</h3>
+        <p class="color-meaning">The color of feminism and women's movements, now tinged with sadness. Represents the emotional weight of rights being taken away and the despair of regression.</p>
+      </div>
+    </div>
+    
+    <div class="symbolism-card" data-color="red">
+      <div class="color-preview" style="background: linear-gradient(135deg, #E63946, #D62839);"></div>
+      <div class="color-details">
+        <h3 class="color-name">Bold Red Typography</h3>
+        <p class="color-meaning">"OVERWORKED" and "UNDERPAID" in striking red demands attention and conveys urgency, anger, and the critical nature of ongoing discrimination issues.</p>
+      </div>
+    </div>
+    
+    <div class="symbolism-card" data-color="blue">
+      <div class="color-preview" style="background: linear-gradient(135deg, #5B9FD8, #3D7BAF);"></div>
+      <div class="color-details">
+        <h3 class="color-name">Blue Eyes & Accents</h3>
+        <p class="color-meaning">The consistent blue eyes across all panels symbolize the unchanging humanity and shared experience of women, despite different decades and struggles.</p>
+      </div>
+    </div>
+    
+    <div class="symbolism-card" data-color="contrast">
+      <div class="color-preview" style="background: linear-gradient(135deg, #000000, #FFFFFF);"></div>
+      <div class="color-details">
+        <h3 class="color-name">Black Ink & High Contrast</h3>
+        <p class="color-meaning">Bold black linework in pop-art style creates stark contrasts that emphasize the clear divide between progress and regression, right and wrong.</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="symbolism-insight">
+    <p><strong>Design Philosophy:</strong> The color palette shifts dramatically across three decades—from hopeful mint green in the 1970s, to oppressive maroon in the 2000s, to somber purple in the 2020s. This progression visually represents the "full circle" regression of women's rights, with each era's mood reflected in its dominant color story.</p>
+  </div>
+</div>
+        
+        
+        
         <!-- Section with title -->
         <h2 class="section-title">Process</h2>
         <div class="project-description">
